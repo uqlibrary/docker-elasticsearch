@@ -16,32 +16,10 @@ network:
 cloud:
   aws:
     region: $ES_AWS_REGION
-    access_key: $ES_AWS_KEY
-    secret_key: $ES_AWS_SECRET
 
 discovery:
   type: ec2
   ec2:
     groups: $ES_EC2_GROUPS
 EOF
-  if [ "$ES_S3_BUCKET" != "" ] ; then
-      cat >> $ES_CONFIG << EOF
-gateway:
-  type: s3
-  s3:
-    bucket: $ES_S3_BUCKET
-EOF
-  fi
 fi
-
-if [ "$ES_AWS_REGION" != "" ] ; then
-	cat >> $ES_CONFIG << EOF
-cloud:
-  aws:
-    region: $ES_AWS_REGION
-    access_key: $ES_AWS_KEY
-    secret_key: $ES_AWS_SECRET
-EOF
-fi
-
-

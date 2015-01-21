@@ -7,6 +7,8 @@ index.number_of_replicas: 1
 
 bootstrap.mlockall: true
 
+gateway.type: local
+
 path:
   logs: /data/log
   data: /data/data
