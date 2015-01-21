@@ -23,6 +23,7 @@ ADD elasticsearch_config.sh /opt/elasticsearch_config.sh
 RUN chmod +x /opt/elasticsearch_config.sh
 
 ADD limits.conf /etc/security/limits.conf
+ADD elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 VOLUME ["/data"]
