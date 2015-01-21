@@ -26,8 +26,12 @@ After few seconds, open `http://<host>:9200` to see the result.
 The following environment variables can be used to configure the container:
 
     ES_CLUSTER_NAME     (REQUIRED) The name of the Elasticsearch cluster.
-    ES_NODE_MASTER      (REQUIRED) Whether the node will be the master in the cluster. Setting to "true" makes this node the master.
+    ES_NODE_MASTER      (REQUIRED) Whether the node will be the master in the cluster. 
+                        Setting to "true" makes this node the master.
     
-    ES_DISCOVERY        The type of discovery to use with Elasticsearch, if not set will use multicast. Setting to "ec2" will enable ec2 discovery using ES_EC2_GROUPS in ES_AWS_REGION.
-    ES_EC2_GROUPS       Either a comma separated list or array based list of (security) groups used for discovery.
+    ES_DISCOVERY        The type of discovery to use with Elasticsearch, if not set will use 
+                        multicast. Setting to "ec2" will enable ec2 discovery using 
+                        ES_EC2_GROUPS in ES_AWS_REGION.
+    ES_EC2_GROUPS       Either a comma separated list or array based list of (security) groups 
+                        used for discovery.
     ES_AWS_REGION       AWS region to be used for discovery.
