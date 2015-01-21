@@ -1,0 +1,13 @@
+script.disable_dynamic: true
+
+node.data: true
+
+index.number_of_shards: 8
+index.number_of_replicas: 1
+
+bootstrap.mlockall: true
+
+path:
+  logs: /data/log
+  data: /data/data
+  conf: /data/etc
