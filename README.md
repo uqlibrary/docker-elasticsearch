@@ -45,4 +45,5 @@ The following environment variables can be used to configure the container:
                         used for discovery.
     ES_AWS_REGION       AWS region to be used for discovery.
 
-    ES_KUBE_SELECTOR    The selector to use in a Kubernetes cluster, e.g. cluster=myCluster,component=elasticsearch
+    ES_KUBE_SELECTOR    The selector to use in a Kubernetes cluster
+                        e.g. cluster=myCluster,component=elasticsearch
