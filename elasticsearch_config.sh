@@ -27,3 +27,14 @@ discovery:
     groups: $ES_EC2_GROUPS
 EOF
 fi
+
+if [ "$ES_DISCOVERY" == "kubernetes" ] ; then
+	cat >> $ES_CONFIG << EOF
+cloud:
+  k8s:
+    selector: $ES_KUBE_SELECTOR
+discovery:
+  type: io.fabric8.elasticsearch.discovery.k8s.K8sDiscoveryModule
+
+EOF
+fi

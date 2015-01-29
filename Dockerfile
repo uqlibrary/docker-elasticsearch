@@ -15,9 +15,7 @@ RUN \
 RUN \
   cd /usr/share/elasticsearch && \
   bin/plugin -i elasticsearch/elasticsearch-cloud-aws/2.4.1 && \
-  bin/plugin -i royrusso/elasticsearch-HQ
-
-RUN usermod -u 1000 elasticsearch
+  bin/plugin -i fabric8io/elasticsearch-cloud-kubernetes/1.0.0
 
 ADD elasticsearch_config.sh /opt/elasticsearch_config.sh
 RUN chmod +x /opt/elasticsearch_config.sh
