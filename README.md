@@ -22,6 +22,8 @@ This repository contains a Dockerfile of ElasticSearch for Docker's automated bu
       logs: /data/log
       data: /data/data
       conf: /data/etc
+      work: /data/work
+      plugins: /elasticsearch/plugins
     ```
 3. Start a container by mounting the data directory and specifying the cluster name as an environment variable:
 
@@ -39,7 +41,11 @@ The following environment variables can be used to configure the container:
     
     ES_DISCOVERY        The type of discovery to use with Elasticsearch, if not set will use 
                         multicast. Setting to "ec2" will enable ec2 discovery using 
-                        ES_EC2_GROUPS in ES_AWS_REGION.
+                        ES_EC2_GROUPS in ES_AWS_REGION. Setting to "kubernetes" will 
+                        enable kubernetes automatic discovery using the ES_KUBE_SELECTOR.
     ES_EC2_GROUPS       Either a comma separated list or array based list of (security) groups 
                         used for discovery.
     ES_AWS_REGION       AWS region to be used for discovery.
+
+    ES_KUBE_SELECTOR    The selector to use in a Kubernetes cluster
+                        e.g. cluster=myCluster,component=elasticsearch
