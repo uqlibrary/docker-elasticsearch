@@ -15,17 +15,7 @@ This repository contains a Dockerfile of ElasticSearch for Docker's automated bu
 
 1. Create a mountable data directory `<data-dir>` on the host.
 
-2. Create Elasticsearch config file at `<data-dir>/elasticsearch.yml`.
-
-    ```yml
-    path:
-      logs: /data/log
-      data: /data/data
-      conf: /data/etc
-      work: /data/work
-      plugins: /elasticsearch/plugins
-    ```
-3. Start a container mounting the data directory:
+2. Start the container mounting the data directory:
 
     ```sh
     docker run -v <data-dir>:/data uqlibrary/elasticsearch
