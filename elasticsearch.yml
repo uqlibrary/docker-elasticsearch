@@ -28,6 +28,5 @@ cloud:
 path:
   logs: /data/log
   data: /data/data
-  conf: /data/etc
   work: /data/work
   plugins: /elasticsearch/plugins
