@@ -1,0 +1,33 @@
+cluster:
+  name: elasticsearch
+
+node:
+  master: true
+  data: true
+
+bootstrap:
+  mlockall: true
+
+script:
+  disable_dynamic: true
+
+http:
+  enabled: true
+
+discovery:
+  type: io.fabric8.elasticsearch.discovery.k8s.K8sDiscoveryModule
+  zen:
+    ping:
+      multicast:
+        enabled: false
+
+cloud:
+  k8s:
+    selector: component=elasticsearch
+
+path:
+  logs: /data/log
+  data: /data/data
+  conf: /data/etc
+  work: /data/work
+  plugins: /elasticsearch/plugins
