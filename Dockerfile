@@ -1,8 +1,8 @@
 FROM dockerfile/elasticsearch
 
-ADD elasticsearch.yml /elasticsearch/config/elasticsearch.yml
+COPY elasticsearch.yml /elasticsearch/config/elasticsearch.yml
 
-# Install runit
+# Install supervisor
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list && \
   apt-get update && \
   apt-get upgrade -y && \
@@ -18,7 +18,7 @@ RUN \
 COPY elasticsearch_config.sh /opt/elasticsearch_config.sh
 RUN chmod +x /opt/elasticsearch_config.sh
 
-ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 CMD /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
 
 EXPOSE 9200 9300
