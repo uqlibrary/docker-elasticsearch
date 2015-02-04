@@ -2,6 +2,14 @@ FROM dockerfile/elasticsearch
 
 ADD elasticsearch.yml /elasticsearch/config/elasticsearch.yml
 
+# Install runit
+RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list && \
+  apt-get update && \
+  apt-get upgrade -y && \
+  apt-get install -y supervisor && \
+  apt-get autoremove -y && \
+  apt-get autoclean
+
 RUN \
   cd /elasticsearch && \
   bin/plugin install elasticsearch/elasticsearch-cloud-aws/2.4.1 && \
