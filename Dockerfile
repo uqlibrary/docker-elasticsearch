@@ -1,19 +1,20 @@
-FROM dockerfile/elasticsearch
+FROM uqlibrary/docker-base
+
+ENV ES_PKG_NAME elasticsearch-1.4.2
+
+RUN \
+  cd / && \
+  wget https://download.elasticsearch.org/elasticsearch/elasticsearch/$ES_PKG_NAME.tar.gz && \
+  tar xvzf $ES_PKG_NAME.tar.gz && \
+  rm -f $ES_PKG_NAME.tar.gz && \
+  mv /$ES_PKG_NAME /elasticsearch
 
 COPY elasticsearch.yml /elasticsearch/config/elasticsearch.yml
-
-# Install supervisor
-RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list && \
-  apt-get update && \
-  apt-get upgrade -y && \
-  apt-get install -y supervisor && \
-  apt-get autoremove -y && \
-  apt-get autoclean
 
 RUN \
   cd /elasticsearch && \
   bin/plugin install elasticsearch/elasticsearch-cloud-aws/2.4.1 && \
-  bin/plugin -i io.fabric8/elasticsearch-cloud-kubernetes/1.0.1 --verbose
+  bin/plugin -i io.fabric8/elasticsearch-cloud-kubernetes/1.0.1
 
 COPY elasticsearch_config.sh /opt/elasticsearch_config.sh
 RUN chmod +x /opt/elasticsearch_config.sh
