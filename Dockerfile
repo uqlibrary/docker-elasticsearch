@@ -3,6 +3,10 @@ FROM uqlibrary/docker-base
 ENV ES_PKG_NAME elasticsearch-1.4.2
 
 RUN \
+  yum install -y java-1.7.0-openjdk && \
+  yum clean all
+
+RUN \
   cd / && \
   wget https://download.elasticsearch.org/elasticsearch/elasticsearch/$ES_PKG_NAME.tar.gz && \
   tar xvzf $ES_PKG_NAME.tar.gz && \
