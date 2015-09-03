@@ -30,19 +30,3 @@ discovery:
 
 EOF
 fi
-
-if [ "$ES_DISCOVERY" == "kubernetes" ] ; then
-	cat >> $ES_CONFIG << EOF
-cloud:
-  k8s:
-    selector: $ES_KUBE_SELECTOR
-
-discovery:
-  type: io.fabric8.elasticsearch.discovery.k8s.K8sDiscoveryModule
-  zen:
-    ping:
-      multicast:
-        enabled: false
-
-EOF
-fi

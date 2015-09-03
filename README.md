@@ -38,6 +38,3 @@ The following environment variables can be used to configure the container:
     ES_EC2_GROUPS       Either a comma separated list or array based list of (security) groups 
                         used for discovery.
     ES_AWS_REGION       AWS region to be used for discovery.
-
-    ES_KUBE_SELECTOR    The selector to use in a Kubernetes cluster
-                        e.g. cluster=myCluster,component=elasticsearch

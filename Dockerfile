@@ -1,6 +1,6 @@
-FROM uqlibrary/docker-base
+FROM uqlibrary/docker-base:1
 
-ENV ES_PKG_NAME elasticsearch-1.4.2
+ENV ES_PKG_NAME elasticsearch-1.7.1
 
 RUN \
   yum install -y java-1.7.0-openjdk && \
@@ -17,8 +17,7 @@ COPY elasticsearch.yml /elasticsearch/config/elasticsearch.yml
 
 RUN \
   cd /elasticsearch && \
-  bin/plugin install elasticsearch/elasticsearch-cloud-aws/2.4.1 && \
-  bin/plugin -i io.fabric8/elasticsearch-cloud-kubernetes/1.0.1
+  bin/plugin install elasticsearch/elasticsearch-cloud-aws/2.4.1
 
 COPY elasticsearch_config.sh /opt/elasticsearch_config.sh
 RUN chmod +x /opt/elasticsearch_config.sh
