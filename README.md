@@ -30,11 +30,3 @@ The following environment variables can be used to configure the container:
                         Setting to "true" makes this node the master.
     ES_NODE_DATA        (REQUIRED) Whether the node will be a data node in the cluster. 
                         Setting to "true" makes this a data node.
-                            
-    ES_DISCOVERY        The type of discovery to use with Elasticsearch, if not set will use 
-                        multicast. Setting to "ec2" will enable ec2 discovery using 
-                        ES_EC2_GROUPS in ES_AWS_REGION. Setting to "kubernetes" will 
-                        enable kubernetes automatic discovery using the ES_KUBE_SELECTOR.
-    ES_EC2_GROUPS       Either a comma separated list or array based list of (security) groups 
-                        used for discovery.
-    ES_AWS_REGION       AWS region to be used for discovery.
