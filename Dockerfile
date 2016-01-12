@@ -1,4 +1,4 @@
-FROM uqlibrary/docker-base:1
+FROM uqlibrary/docker-base:4
 
 ENV ES_PKG_NAME elasticsearch-1.7.1
 
